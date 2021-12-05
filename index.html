@@ -87,25 +87,25 @@
 </div>
 <div class="mermaid">
             classDiagram
-  SphinxError &lt;|-- SphinxParallelError
-  SphinxError &lt;|-- ExtensionError
-  Exception &lt;|-- SphinxError
   BaseException &lt;|-- Exception
+  SphinxError &lt;|-- SphinxParallelError
+  Exception &lt;|-- SphinxError
+  SphinxError &lt;|-- ExtensionError
         </div><p>或者直接使用该模块</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">autoclasstree</span><span class="p">::</span> <span class="n">sphinx</span><span class="o">.</span><span class="n">util</span>
 </pre></div>
 </div>
 <div class="mermaid">
             classDiagram
-  date &lt;|-- datetime
-  SphinxError &lt;|-- ExtensionError
-  dict &lt;|-- DownloadFiles
-  DeprecationWarning &lt;|-- RemovedInSphinx50Warning
   SphinxError &lt;|-- SphinxParallelError
-  Exception &lt;|-- FiletypeNotFoundError
   dict &lt;|-- FilenameUniqDict
-  Generic &lt;|-- IO
+  DeprecationWarning &lt;|-- RemovedInSphinx50Warning
+  date &lt;|-- datetime
+  Exception &lt;|-- FiletypeNotFoundError
+  dict &lt;|-- DownloadFiles
   Exception &lt;|-- SkipProgressMessage
+  SphinxError &lt;|-- ExtensionError
+  Generic &lt;|-- IO
         </div><section id="installation">
 <h2>安装<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
 <p>你可以用 pip 安装它</p>
@@ -123,7 +123,7 @@
 <section id="directive-options">
 <h2>指令选项<a class="headerlink" href="#directive-options" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">:alt:</span></code>：决定了图片在HTML输出中的替代文本。如果没有给出，备用文本默认为 mermaid 代码。</p>
-<p><code class="docutils literal notranslate"><span class="pre">:align:</span></code>：决定图像的位置。有效选项是``’left’<code class="docutils literal notranslate"><span class="pre">、</span></code>’center’<code class="docutils literal notranslate"><span class="pre">、</span></code>’right’``</p>
+<p><code class="docutils literal notranslate"><span class="pre">:align:</span></code>：决定图像的位置。有效选项是 <code class="docutils literal notranslate"><span class="pre">'left'</span></code>、<code class="docutils literal notranslate"><span class="pre">'center'</span></code>、<code class="docutils literal notranslate"><span class="pre">'right'</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">:caption:</span></code>：可以用来给图表加一个标题。</p>
 </section>
 <section id="config-values">
@@ -159,7 +159,7 @@
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">mermaid_params</span></code></p>
 <blockquote>
-<div><p>对于单个参数，可以添加一个参数列表。请参考`&lt;<a class="reference external" href="https://github.com/mermaidjs/mermaid.cli#options">https://github.com/mermaidjs/mermaid.cli#options</a>&gt;`_。例如</p>
+<div><p>对于单个参数，可以添加一个参数列表。请参考 <a class="reference external" href="https://github.com/mermaidjs/mermaid.cli#options">https://github.com/mermaidjs/mermaid.cli#options</a>。例如</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mermaid_params</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--theme&#39;</span><span class="p">,</span> <span class="s1">&#39;forest&#39;</span><span class="p">,</span> <span class="s1">&#39;--width&#39;</span><span class="p">,</span> <span class="s1">&#39;600&#39;</span><span class="p">,</span> <span class="s1">&#39;--backgroundColor&#39;</span><span class="p">,</span> <span class="s1">&#39;transparent&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
