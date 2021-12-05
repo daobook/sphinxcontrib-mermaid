@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>欢迎来到 Sphinxcontrib-mermaid demo 的文档！ &#8212; sphinxcontrib-mermaid  文档</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="_static/js/custom.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="welcome-to-sphinxcontrib-mermaid-demo-s-documentation">
+<h1>欢迎来到 Sphinxcontrib-mermaid demo 的文档！<a class="headerlink" href="#welcome-to-sphinxcontrib-mermaid-demo-s-documentation" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<a class="reference external image-reference" href="https://travis-ci.com/mgaitan/sphinxcontrib-mermaid"><img alt="https://travis-ci.com/mgaitan/sphinxcontrib-mermaid.svg?branch=master" src="https://travis-ci.com/mgaitan/sphinxcontrib-mermaid.svg?branch=master" /></a>
+<p>这个插件允许你在你的文档中嵌入 <a class="reference external" href="https://mermaid-js.github.io/mermaid">Mermaid</a> 图形，包括一般的流程图、序列图和甘特图。</p>
+<p>它添加了一个指令来嵌入 mermaid 标记。比如说:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. mermaid::
+
+   sequenceDiagram
+      participant Alice
+      participant Bob
+      Alice-&gt;John: Hello John, how are you?
+      loop Healthcheck
+          John-&gt;John: Fight against hypochondria
+      end
+      Note right of John: Rational thoughts &lt;br/&gt;prevail...
+      John--&gt;Alice: Great!
+      John-&gt;Bob: How about you?
+      Bob--&gt;John: Jolly good!
+</pre></div>
+</div>
+<p>默认情况下，HTML 生成器将简单地将其呈现为一个 <code class="docutils literal notranslate"><span class="pre">div</span></code> 标记，<code class="docutils literal notranslate"><span class="pre">class=&quot;mermaid&quot;</span></code>，注入外部 javascript、css 和初始化代码，使 mermaid 工作。</p>
+<p>对于其他构建器（或者如果 <code class="docutils literal notranslate"><span class="pre">mermaid_output_format</span></code> 配置变量设置不同），插件将使用 <a class="reference external" href="https://github.com/mermaidjs/mermaid.cli">mermaid-cli</a> 渲染为 PNG 或 SVG 图像，然后用于适当的代码。</p>
+<div class="mermaid">
+            sequenceDiagram
+   participant Alice
+   participant Bob
+   Alice-&gt;John: Hello John, how are you?
+   loop Healthcheck
+       John-&gt;John: Fight against hypochondria
+   end
+   Note right of John: Rational thoughts &lt;br/&gt;prevail...
+   John--&gt;Alice: Great!
+   John-&gt;Bob: How about you?
+   Bob--&gt;John: Jolly good!
+        </div><p>你也可以嵌入外部的 mermaid 文件，方法是将文件名作为指令的参数，不需要额外内容</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">mermaid</span><span class="p">::</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">mermaid</span><span class="o">-</span><span class="n">gantt</span><span class="o">-</span><span class="n">code</span><span class="o">.</span><span class="n">mmd</span>
+</pre></div>
+</div>
+<p>对于 Sphinx 中的所有文件引用，如果文件名不是绝对的，它将被视为与源目录的相对值。</p>
+<p>此外，你可以使用 mermaid 自动生成图表，使用指令 <code class="docutils literal notranslate"><span class="pre">autoclasstree</span></code> 来显示类的继承性。它接受一个或多个完全合格的类或模块的名称。在模块的情况下，所有找到的类将被包括在内。</p>
+<p>当然，这些对象需要可被导入，以使其图示化。</p>
+<p>如果给了一个可选的属性 <code class="docutils literal notranslate"><span class="pre">:full:</span></code>，它将显示每个类的完整层次结构。</p>
+<p>选项 <code class="docutils literal notranslate"><span class="pre">:namespace:</span> <span class="pre">&lt;value&gt;</span></code> 限制了属于这个命名空间的基类。同时，旗标 <code class="docutils literal notranslate"><span class="pre">:strict:</span></code> 只处理在给定模块中严格定义的类（忽略从其他模块导入的类）。</p>
+<p>例如</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">autoclasstree</span><span class="p">::</span> <span class="n">sphinx</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">SphinxParallelError</span> <span class="n">sphinx</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">ExtensionError</span>
+   <span class="p">:</span><span class="n">full</span><span class="p">:</span>
+</pre></div>
+</div>
+<div class="mermaid">
+            classDiagram
+  SphinxError &lt;|-- SphinxParallelError
+  SphinxError &lt;|-- ExtensionError
+  Exception &lt;|-- SphinxError
+  BaseException &lt;|-- Exception
+        </div><p>或者直接使用该模块</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">autoclasstree</span><span class="p">::</span> <span class="n">sphinx</span><span class="o">.</span><span class="n">util</span>
+</pre></div>
+</div>
+<div class="mermaid">
+            classDiagram
+  date &lt;|-- datetime
+  SphinxError &lt;|-- ExtensionError
+  dict &lt;|-- DownloadFiles
+  DeprecationWarning &lt;|-- RemovedInSphinx50Warning
+  SphinxError &lt;|-- SphinxParallelError
+  Exception &lt;|-- FiletypeNotFoundError
+  dict &lt;|-- FilenameUniqDict
+  Generic &lt;|-- IO
+  Exception &lt;|-- SkipProgressMessage
+        </div><section id="installation">
+<h2>安装<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h2>
+<p>你可以用 pip 安装它</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">mermaid</span>
+</pre></div>
+</div>
+<p>然后在你项目的 <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> 的 <code class="docutils literal notranslate"><span class="pre">extensions</span></code> 列表中添加 <code class="docutils literal notranslate"><span class="pre">sphinxcontrib.mermaid</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span><span class="p">,</span>
+    <span class="s1">&#39;sphinxcontrib.mermaid&#39;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="directive-options">
+<h2>指令选项<a class="headerlink" href="#directive-options" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">:alt:</span></code>：决定了图片在HTML输出中的替代文本。如果没有给出，备用文本默认为 mermaid 代码。</p>
+<p><code class="docutils literal notranslate"><span class="pre">:align:</span></code>：决定图像的位置。有效选项是``’left’<code class="docutils literal notranslate"><span class="pre">、</span></code>’center’<code class="docutils literal notranslate"><span class="pre">、</span></code>’right’``</p>
+<p><code class="docutils literal notranslate"><span class="pre">:caption:</span></code>：可以用来给图表加一个标题。</p>
+</section>
+<section id="config-values">
+<h2>配置值<a class="headerlink" href="#config-values" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">mermaid_output_format</span></code></p>
+<blockquote>
+<div><p>在建立 HTML 文件时，Mermaid 的输出格式。这必须是 <code class="docutils literal notranslate"><span class="pre">'raw'</span></code> <code class="docutils literal notranslate"><span class="pre">'png'</span></code> 或 <code class="docutils literal notranslate"><span class="pre">'svg'</span></code>；默认是 <code class="docutils literal notranslate"><span class="pre">'raw'</span></code>。如果不是 <code class="docutils literal notranslate"><span class="pre">'raw'</span></code>，则需要 <code class="docutils literal notranslate"><span class="pre">mermaid-cli</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">mermaid_version</span></code></p>
+<blockquote>
+<div><p>mermaid 的版本，将用于解析 HTML 文件中的 <code class="docutils literal notranslate"><span class="pre">raw</span></code> 输出。这应该与 <a class="reference external" href="https://unpkg.com/browse/mermaid/">https://unpkg.com/browse/mermaid/</a> 上的版本一致。默认的是 <code class="docutils literal notranslate"><span class="pre">&quot;latest&quot;</span></code>。</p>
+<p>如果它被设置为 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>，lib 不会从 CDN 服务中自动包含，你需要在 <code class="docutils literal notranslate"><span class="pre">html_js_files</span></code> 中把它作为一个本地文件加入。例如，如果你下载 lib 到 <code class="docutils literal notranslate"><span class="pre">_static/js/mermaid.js</span></code>，在 <code class="docutils literal notranslate"><span class="pre">conf.py</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html_js_files</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="s1">&#39;js/mermaid.js&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">mermaid_init_js</span></code></p>
+<blockquote>
+<div><p>Mermaid 初始化代码。默认为 <code class="docutils literal notranslate"><span class="pre">&quot;mermaid.initialize({startOnLoad:true});&quot;</span></code>.</p>
+</div></blockquote>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 0.7 版更改: </span>init 代码不再包括 <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> 标签。它是在构建时自动添加的。</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mermaid_cmd</span></code></p>
+<blockquote>
+<div><p>用于调用 <code class="docutils literal notranslate"><span class="pre">mermaid-cli</span></code> 程序的命令名称。默认是 <code class="docutils literal notranslate"><span class="pre">'mmdc'</span></code>；如果它不在可执行的搜索路径中，你可能需要将其设置为完整的路径。</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">mermaid_cmd_shell</span></code></p>
+<blockquote>
+<div><p>当设置为 true 时，<code class="docutils literal notranslate"><span class="pre">shell=True</span></code> 参数将被传递给进程执行命令。这允许在 Windows 上执行二进制可执行文件以外的命令。默认为 false。</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">mermaid_params</span></code></p>
+<blockquote>
+<div><p>对于单个参数，可以添加一个参数列表。请参考`&lt;<a class="reference external" href="https://github.com/mermaidjs/mermaid.cli#options">https://github.com/mermaidjs/mermaid.cli#options</a>&gt;`_。例如</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mermaid_params</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--theme&#39;</span><span class="p">,</span> <span class="s1">&#39;forest&#39;</span><span class="p">,</span> <span class="s1">&#39;--width&#39;</span><span class="p">,</span> <span class="s1">&#39;600&#39;</span><span class="p">,</span> <span class="s1">&#39;--backgroundColor&#39;</span><span class="p">,</span> <span class="s1">&#39;transparent&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>这将呈现主题 forest、600px 宽度和透明背景的 mermaid 图。</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">mermaid_sequence_config</span></code></p>
+<blockquote>
+<div><p>允许覆盖序列图的配置。它对增加角色之间的宽度很有用。它 <strong>需要是一个 json 文件</strong>，检查 <a class="reference external" href="https://mermaid-js.github.io/mermaid/#/mermaidAPI?id=configuration">文档中的选项</a></p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">mermaid_verbose</span></code></p>
+<blockquote>
+<div><p>在调用 mermaid-cli 时使用 verbose 模式，并在构建过程中显示其输出。</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">mermaid_pdfcrop</span></code></p>
+<blockquote>
+<div><p>如果使用 latex 输出，将 pdf 裁剪到需要的空间可能是有用的。为此，可以使用 <code class="docutils literal notranslate"><span class="pre">pdfcrop</span></code>。说明二进制名称来使用这个额外的功能。</p>
+</div></blockquote>
+</section>
+<section id="markdown-support">
+<h2>Markdown support<a class="headerlink" href="#markdown-support" title="永久链接至标题">¶</a></h2>
+<p>你可以在 Sphinx 的 Markdown 文档中包含 Mermaid 图表。你只需要通过 <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/markdown.html">myst-parser</a> 在 Sphinx 中设置 <a class="reference external" href="https://myst-parser.readthedocs.io/">markdown 支持</a> 。请看测试中的 <a class="reference external" href="https://github.com/mgaitan/sphinxcontrib-mermaid/blob/master/tests/roots/test-markdown/conf.py">最低配置</a></p>
+<p>然后在你的 <code class="docutils literal notranslate"><span class="pre">.md</span></code> 文件中包括一个代码块，如 reStructuredTexts</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{mermaid}
+
+    sequenceDiagram
+      participant Alice
+      participant Bob
+      Alice-&gt;John: Hello John, how are you?
+```
+</pre></div>
+</div>
+</section>
+</section>
+<section id="indices-and-tables">
+<h1>索引和表格<a class="headerlink" href="#indices-and-tables" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">模块索引</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">搜索页面</span></a></p></li>
+</ul>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">sphinxcontrib-mermaid</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017-2021, Martín Gaitán.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
