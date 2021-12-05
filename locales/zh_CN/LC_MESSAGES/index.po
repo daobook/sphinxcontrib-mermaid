@@ -143,7 +143,7 @@ msgid ""
 "``:align:``: determines the image's position. Valid options are "
 "``'left'``, ``'center'``, ``'right'``"
 msgstr ""
-"``:align:``：决定图像的位置。有效选项是``'left'``、``'center'``、``'right'``"
+"``:align:``：决定图像的位置。有效选项是 ``'left'``、``'center'``、``'right'``"
 
 #: ../../../README.rst:110
 msgid "``:caption:``: can be used to give a caption to the diagram."
@@ -244,7 +244,7 @@ msgid ""
 "For individual parameters, a list of parameters can be added. Refer to "
 "`<https://github.com/mermaidjs/mermaid.cli#options>`_. Examples::"
 msgstr ""
-"对于单个参数，可以添加一个参数列表。请参考"
+"对于单个参数，可以添加一个参数列表。请参考 "
 "`<https://github.com/mermaidjs/mermaid.cli#options>`_。例如 ::"
 
 #: ../../../README.rst:157
