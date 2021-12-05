@@ -1,0 +1,337 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2021, Martín Gaitán
+# This file is distributed under the same license as the
+# sphinxcontrib-mermaid package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: sphinxcontrib-mermaid \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-05 11:45+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../index.rst:9
+msgid "Contents:"
+msgstr "导航"
+
+#: ../../index.rst:7
+msgid "Welcome to Sphinxcontrib-mermaid demo's documentation!"
+msgstr "欢迎来到 Sphinxcontrib-mermaid demo 的文档！"
+
+#: ../../../README.rst:4
+msgid ""
+"This extension allows you to embed `Mermaid <https://mermaid-"
+"js.github.io/mermaid>`_ graphs in your documents, including general "
+"flowcharts, sequence and gantt diagrams."
+msgstr ""
+"这个插件允许你在你的文档中嵌入 `Mermaid <https://mermaid-js.github.io/mermaid>`_ 图形，"
+"包括一般的流程图、序列图和甘特图。"
+
+#: ../../../README.rst:7
+msgid "It adds a directive to embed mermaid markup. For example::"
+msgstr "它添加了一个指令来嵌入 mermaid 标记。比如说::"
+
+#: ../../../README.rst:24
+msgid ""
+"By default, the HTML builder will simply render this as a ``div`` tag "
+"with ``class=\"mermaid\"``, injecting the external javascript, css and "
+"initialization code to make mermaid works."
+msgstr ""
+"默认情况下，HTML 生成器将简单地将其呈现为一个 ``div`` 标记，"
+"``class=\"mermaid\"``，注入外部 javascript、css 和初始化代码，使 mermaid 工作。"
+
+#: ../../../README.rst:28
+msgid ""
+"For other builders (or if ``mermaid_output_format`` config variable is "
+"set differently), the extension will use `mermaid-cli "
+"<https://github.com/mermaidjs/mermaid.cli>`_ to render as to a PNG or SVG"
+" image, and then used in the proper code."
+msgstr ""
+"对于其他构建器（或者如果 ``mermaid_output_format`` 配置变量设置不同），"
+"插件将使用 `mermaid-cli <https://github.com/mermaidjs/mermaid.cli>`_ "
+"渲染为 PNG 或 SVG 图像，然后用于适当的代码。"
+
+#: ../../../README.rst:48
+msgid ""
+"You can also embed external mermaid files, by giving the file name as an "
+"argument to the directive and no additional content::"
+msgstr ""
+"你也可以嵌入外部的 mermaid 文件，方法是将文件名作为指令的参数，不需要额外内容 ::"
+
+#: ../../../README.rst:53
+msgid ""
+"As for all file references in Sphinx, if the filename is not absolute, it"
+" is taken as relative to the source directory."
+msgstr ""
+"对于 Sphinx 中的所有文件引用，如果文件名不是绝对的，它将被视为与源目录的相对值。"
+
+#: ../../../README.rst:57
+msgid ""
+"In addition, you can use mermaid to automatically generate a diagram to "
+"show the class inheritance using the directive ``autoclasstree``. It "
+"accepts one or more fully qualified names to a class or a module. In the "
+"case of a module, all the class found will be included."
+msgstr ""
+"此外，你可以使用 mermaid 自动生成图表，使用指令 ``autoclasstree`` 来显示类的继承性。"
+"它接受一个或多个完全合格的类或模块的名称。在模块的情况下，所有找到的类将被包括在内。"
+
+#: ../../../README.rst:60
+msgid "Of course, these objects need to be importable to make its diagram."
+msgstr "当然，这些对象需要可被导入，以使其图示化。"
+
+#: ../../../README.rst:62
+msgid ""
+"If an optional attribute ``:full:`` is given, it will show the complete "
+"hierarchy of each class."
+msgstr ""
+"如果给了一个可选的属性 ``:full:``，它将显示每个类的完整层次结构。"
+
+#: ../../../README.rst:64
+msgid ""
+"The option ``:namespace: <value>`` limits to the base classes that "
+"belongs to this namespace. Meanwhile, the flag ``:strict:`` only process "
+"the classes that are strictly defined in the given module (ignoring "
+"classes imported from other modules)."
+msgstr ""
+"选项 ``:namespace: <value>`` 限制了属于这个命名空间的基类。"
+"同时，旗标 ``:strict:`` 只处理在给定模块中严格定义的类（忽略从其他模块导入的类）。"
+
+#: ../../../README.rst:69
+msgid "For example::"
+msgstr "例如 ::"
+
+#: ../../../README.rst:78
+msgid "Or directly the module::"
+msgstr "或者直接使用该模块 ::"
+
+#: ../../../README.rst:87
+msgid "Installation"
+msgstr "安装"
+
+#: ../../../README.rst:89
+msgid "You can install it using pip"
+msgstr "你可以用 pip 安装它"
+
+#: ../../../README.rst:95
+msgid ""
+"Then add ``sphinxcontrib.mermaid`` in ``extensions`` list of your "
+"project's ``conf.py``::"
+msgstr ""
+"然后在你项目的 ``conf.py`` 的 ``extensions`` 列表中添加 ``sphinxcontrib.mermaid`` ::"
+
+#: ../../../README.rst:104
+msgid "Directive options"
+msgstr "指令选项"
+
+#: ../../../README.rst:106
+msgid ""
+"``:alt:``: determines the image's alternate text for HTML output.  If not"
+" given, the alternate text defaults to the mermaid code."
+msgstr ""
+"``:alt:``：决定了图片在HTML输出中的替代文本。如果没有给出，备用文本默认为 mermaid 代码。"
+
+#: ../../../README.rst:108
+msgid ""
+"``:align:``: determines the image's position. Valid options are "
+"``'left'``, ``'center'``, ``'right'``"
+msgstr ""
+"``:align:``：决定图像的位置。有效选项是``'left'``、``'center'``、``'right'``"
+
+#: ../../../README.rst:110
+msgid "``:caption:``: can be used to give a caption to the diagram."
+msgstr "``:caption:``：可以用来给图表加一个标题。"
+
+#: ../../../README.rst:114
+msgid "Config values"
+msgstr "配置值"
+
+#: ../../../README.rst:116
+msgid "``mermaid_output_format``"
+msgstr ""
+
+#: ../../../README.rst:118
+msgid ""
+"The output format for Mermaid when building HTML files.  This must be "
+"either ``'raw'`` ``'png'`` or ``'svg'``; the default is ``'raw'``. "
+"``mermaid-cli`` is required if it's not ``raw``"
+msgstr ""
+"在建立 HTML 文件时，Mermaid 的输出格式。"
+"这必须是 ``'raw'`` ``'png'`` 或 ``'svg'``；"
+"默认是 ``'raw'``。如果不是 ``'raw'``，则需要 ``mermaid-cli``"
+
+#: ../../../README.rst:121
+msgid "``mermaid_version``"
+msgstr ""
+
+#: ../../../README.rst:123
+msgid ""
+"The version of mermaid that will be used to parse ``raw`` output in HTML "
+"files. This should match a version available on "
+"https://unpkg.com/browse/mermaid/. The default is ``\"latest\"``."
+msgstr ""
+"mermaid 的版本，将用于解析 HTML 文件中的 ``raw`` 输出。"
+"这应该与 https://unpkg.com/browse/mermaid/ 上的版本一致。默认的是 ``\"latest\"``。"
+
+#: ../../../README.rst:125
+msgid ""
+"If it's set to ``\"\"``, the lib won't be automatically included from the"
+" CDN service and you'll need to add it as a local file in "
+"``html_js_files``. For instance, if you download the lib to "
+"`_static/js/mermaid.js`, in ``conf.py``::"
+msgstr ""
+"如果它被设置为 ``\"\"``，lib 不会从 CDN 服务中自动包含，你需要在 ``html_js_files`` 中把它作为一个本地文件加入。"
+"例如，如果你下载 lib 到 ``_static/js/mermaid.js``，在 ``conf.py`` ::"
+
+#: ../../../README.rst:134
+msgid "``mermaid_init_js``"
+msgstr ""
+
+#: ../../../README.rst:136
+msgid ""
+"Mermaid initilizaction code. Default to "
+"``\"mermaid.initialize({startOnLoad:true});\"``."
+msgstr ""
+"Mermaid 初始化代码。默认为 "
+"``\"mermaid.initialize({startOnLoad:true});\"``."
+
+#: ../../../README.rst:138
+msgid ""
+"The init code doesn't include the `<script>` tag anymore. It's "
+"automatically added at build time."
+msgstr ""
+"init 代码不再包括 ``<script>`` 标签。它是在构建时自动添加的。"
+
+#: ../../../README.rst:142
+msgid "``mermaid_cmd``"
+msgstr ""
+
+#: ../../../README.rst:144
+msgid ""
+"The command name with which to invoke ``mermaid-cli`` program.  The "
+"default is ``'mmdc'``; you may need to set this to a full path if it's "
+"not in the executable search path."
+msgstr ""
+"用于调用 ``mermaid-cli`` 程序的命令名称。"
+"默认是 ``'mmdc'``；如果它不在可执行的搜索路径中，你可能需要将其设置为完整的路径。"
+
+#: ../../../README.rst:146
+msgid "``mermaid_cmd_shell``"
+msgstr ""
+
+#: ../../../README.rst:148
+msgid ""
+"When set to true, the ``shell=True`` argument will be passed the process "
+"execution command.  This allows commands other than binary executables to"
+" be executed on Windows.  The default is false."
+msgstr ""
+"当设置为 true 时，``shell=True`` 参数将被传递给进程执行命令。"
+"这允许在 Windows 上执行二进制可执行文件以外的命令。默认为 false。"
+
+#: ../../../README.rst:150
+msgid "``mermaid_params``"
+msgstr ""
+
+#: ../../../README.rst:152
+msgid ""
+"For individual parameters, a list of parameters can be added. Refer to "
+"`<https://github.com/mermaidjs/mermaid.cli#options>`_. Examples::"
+msgstr ""
+"对于单个参数，可以添加一个参数列表。请参考"
+"`<https://github.com/mermaidjs/mermaid.cli#options>`_。例如 ::"
+
+#: ../../../README.rst:157
+msgid ""
+"This will render the mermaid diagram with theme forest, 600px width and "
+"transparent background."
+msgstr ""
+"这将呈现主题 forest、600px 宽度和透明背景的 mermaid 图。"
+
+#: ../../../README.rst:159
+msgid "``mermaid_sequence_config``"
+msgstr ""
+
+#: ../../../README.rst:161
+msgid ""
+"Allows overriding the sequence diagram configuration. It could be useful "
+"to increase the width between actors. It **needs to be a json file** "
+"Check options in the `documentation <https://mermaid-"
+"js.github.io/mermaid/#/mermaidAPI?id=configuration>`_"
+msgstr ""
+"允许覆盖序列图的配置。它对增加角色之间的宽度很有用。"
+"它 **需要是一个 json 文件**，检查 `文档中的选项 "
+"<https://mermaid-js.github.io/mermaid/#/mermaidAPI?id=configuration>`_"
+
+#: ../../../README.rst:164
+msgid "``mermaid_verbose``"
+msgstr ""
+
+#: ../../../README.rst:166
+msgid ""
+"Use the verbose mode when call mermaid-cli, and show its output in the "
+"building process."
+msgstr ""
+"在调用 mermaid-cli 时使用 verbose 模式，并在构建过程中显示其输出。"
+
+#: ../../../README.rst:169
+msgid "``mermaid_pdfcrop``"
+msgstr ""
+
+#: ../../../README.rst:171
+msgid ""
+"If using latex output, it might be useful to crop the pdf just to the "
+"needed space. For this, ``pdfcrop`` can be used. State binary name to use"
+" this extra function."
+msgstr ""
+"如果使用 latex 输出，将 pdf 裁剪到需要的空间可能是有用的。"
+"为此，可以使用 ``pdfcrop``。说明二进制名称来使用这个额外的功能。"
+
+#: ../../../README.rst:176
+msgid "Markdown support"
+msgstr ""
+
+#: ../../../README.rst:178
+msgid ""
+"You can include Mermaid diagrams in your Markdown documents in Sphinx. "
+"You just need to setup the `markdown support in Sphinx <https://www"
+".sphinx-doc.org/en/master/usage/markdown.html>`_ via `myst-parser <https"
+"://myst-parser.readthedocs.io/>`_ . See a `minimal configuration from the"
+" tests <https://github.com/mgaitan/sphinxcontrib-"
+"mermaid/blob/master/tests/roots/test-markdown/conf.py>`_"
+msgstr ""
+"你可以在 Sphinx 的 Markdown 文档中包含 Mermaid 图表。"
+"你只需要通过 `myst-parser <https://www.sphinx-doc.org/en/master/usage/markdown.html>`_ "
+"在 Sphinx 中设置 `markdown 支持 <https://myst-parser.readthedocs.io/>`_ 。"
+"请看测试中的 `最低配置 "
+"<https://github.com/mgaitan/sphinxcontrib-mermaid/blob/master/tests/roots/test-markdown/conf.py>`_"
+
+#: ../../../README.rst:183
+msgid ""
+"Then in your `.md` documents include a code block as in "
+"reStructuredTexts::"
+msgstr ""
+"然后在你的 ``.md`` 文件中包括一个代码块，如 reStructuredTexts ::"
+
+#: ../../index.rst:17
+msgid "Indices and tables"
+msgstr "索引和表格"
+
+#: ../../index.rst:19
+msgid ":ref:`genindex`"
+msgstr ""
+
+#: ../../index.rst:20
+msgid ":ref:`modindex`"
+msgstr ""
+
+#: ../../index.rst:21
+msgid ":ref:`search`"
+msgstr ""
+
