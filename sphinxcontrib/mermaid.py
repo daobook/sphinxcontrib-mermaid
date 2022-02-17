@@ -113,8 +113,7 @@ class Mermaid(Directive):
         if 'inline' in self.options:
             node['inline'] = True
 
-        caption = self.options.get('caption')
-        if caption:
+        if caption := self.options.get('caption'):
             node = figure_wrapper(self, node, caption)
 
         return [node]
@@ -283,11 +282,6 @@ def render_mm_latex(self, node, code, options, prefix='mermaid'):
         fname = '{filename[0]}-crop{filename[1]}'.format(filename=os.path.splitext(fname))
 
     is_inline = self.is_inline(node)
-    if is_inline:
-        para_separator = ''
-    else:
-        para_separator = '\n'
-
     if fname is not None:
         post = None
         if not is_inline and 'align' in node:
@@ -297,6 +291,7 @@ def render_mm_latex(self, node, code, options, prefix='mermaid'):
             elif node['align'] == 'right':
                 self.body.append('{\\hspace*{\\fill}')
                 post = '}'
+        para_separator = '' if is_inline else '\n'
         self.body.append('%s\\sphinxincludegraphics{%s}%s' %
                          (para_separator, fname, para_separator))
         if post:
@@ -345,7 +340,7 @@ def install_js(app, *args):
     if not app.config.mermaid_version:
         _mermaid_js_url = None     # asummed is local
     elif app.config.mermaid_version == "latest":
-        _mermaid_js_url = f"https://unpkg.com/mermaid/dist/mermaid.min.js"
+        _mermaid_js_url = 'https://unpkg.com/mermaid/dist/mermaid.min.js'
     else:
         _mermaid_js_url = f"https://unpkg.com/mermaid@{app.config.mermaid_version}/dist/mermaid.min.js"
     if _mermaid_js_url:
